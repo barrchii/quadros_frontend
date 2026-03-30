@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colorada | quadros.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.ico" />
+</head>
+
+
+<body>
+
+  <header>
+    <h1><a href="index.html">quadros.</a></h1>
+    <nav>
+      <a href="mailto:your@email.com" aria-label="email">
+        <img src="images/at.svg" alt="Email" width="20" height="20" />
+      </a>
+      <a href="https://instagram.com/yourhandle" target="_blank" aria-label="instagram">
+        <img src="images/instagram.svg" alt="Instagram" width="20" height="20" />
+      </a>
+    </nav>
+  </header>
+
+  <main class="print-page">
+    <img src="framed/Colorada-BlackFrame.png" alt="Print 1" class="print-image" id="photo" />
+
+    <div class="options">
+      <div class="option-group">
+        <label for="size">Size</label>
+        <select id="size">
+          <option value="medium" data-price="80">Medium (12x18")</option>
+          <option value="large" data-price="120">Large (20x30")</option>
+        </select>
+      </div>
+
+      <div class="option-group">
+        <label for="frame">Frame</label>
+        <select id="frame">
+          <option value="none" data-price="0">No Frame</option>
+          <option value="black" data-price="30" selected>Black Frame</option>
+          <option value="wood" data-price="30">Natural Wood Frame</option>
+        </select>
+      </div>
+
+      <div class="purchase">
+        <span id="price">$50</span>
+        <button>Buy</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="colorada.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f3f3f3;
+    color: #333;
+  }
+  
+  header {
+    background: #111;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+
+  /* Remove underline and color change from 'quadros.' link */
+  header h1 a {
+    text-decoration: none; /* No underline */
+    color: #e0e0e0; /* Light color for the link */
+  }
+  
+  header h1 a:hover {
+    color: #e0e0e0; /* Keep the same color on hover */
+  }
+  
+  nav a {
+    margin-left: 1em;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+
+  /*gallery grid*/
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+  
+
+  /* mobile adaptability*/
+
+  @media (max-width: 768px) {
+    .gallery {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+      padding: 1em;
+    }
+  
+    .gallery img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+
+  
+  .print-page {
+    max-width: 800px;
+    margin: 4em auto;
+    padding: 0 1.5em;
+    text-align: center;
+  }
+  
+  .print-image {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin-bottom: 2em;
+  }
+  
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: center;
+  }
+  
+  .option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  
+  .option-group label {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9em;
+    color: #444;
+  }
+  
+  select {
+    padding: 0.5em 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  .purchase {
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+    margin-top: 1em;
+  }
+  
+  #price {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  button {
+    padding: 0.75em 2em;
+    background-color: #111;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+
+  #paypal-button-container {
+    margin-top: 1em;
+  }
+  
