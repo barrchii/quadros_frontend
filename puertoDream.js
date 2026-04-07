@@ -41,27 +41,3 @@ updatePrice();
 updateImage();
 
 
-
-
-paypal.Buttons({
-    createOrder: function(data, actions) {
-      const sizePrice = parseFloat(sizeSelect.options[sizeSelect.selectedIndex].dataset.price);
-      const framePrice = parseFloat(frameSelect.options[frameSelect.selectedIndex].dataset.price);
-      const totalPrice = (sizePrice + framePrice).toFixed(2);
-  
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            value: totalPrice
-          }
-        }]
-      });
-    },
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        alert('Transaction completed by ' + details.payer.name.given_name + '!');
-        // You can add redirect or database logic here
-      });
-    }
-  }).render('#paypal-button-container');
-  
