@@ -1,4 +1,4 @@
-const images = document.querySelectorAll('.gallery img');
+/*const images = document.querySelectorAll('.gallery img');
 const closeBtn = document.querySelector('.close');
 
 images.forEach(img => {
@@ -11,3 +11,4 @@ images.forEach(img => {
 closeBtn.addEventListener('click', () => {
   lightbox.style.display = 'none';
 });
+/*
