@@ -37,7 +37,7 @@
     const size     = sizeSelect.value;
     const isFramed = frameSelect.value !== 'none';
     const price    = prices[size][isFramed ? 'framed' : 'noframe'];
-    priceTag.textContent = `$${price}`;
+    priceTag.textContent = `$${price} USD`;
   }
  
   // ── Image swap ────────────────────────────────────────────────────────────
