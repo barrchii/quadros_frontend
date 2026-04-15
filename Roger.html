@@ -8,20 +8,46 @@
   <link rel="icon" href="images/favicon.ico" />
 </head>
 
-
 <body>
 
   <header>
-    <h1><a href="index.html">quadros.</a></h1>
-    <nav>
-      <a href="mailto:your@email.com" aria-label="email">
-        <img src="icons/at.svg" alt="Email" width="20" height="20" />
-      </a>
-      <a href="https://instagram.com/yourhandle" target="_blank" aria-label="instagram">
-        <img src="icons/instagram.svg" alt="Instagram" width="20" height="20" />
-      </a>
-    </nav>
+    <div class="header-left">
+      <button class="hamburger" aria-label="Open menu" onclick="openNav()">
+        <img src="icons/hamburger.svg" alt="hamburger" width="40" height="40" />
+      </button>
+      <a href="index.html" class="header-logo">quadros.</a>
+    </div>
+    <div class="header-right">
+      <a href="about.html">about</a>
+      <a href="https://instagram.com/yourhandle" target="_blank">instagram</a>
+      <a href="mailto:your@email.com" aria-label="email">email</a>
+      <a href="account.html">Account</a>
+      <button onclick="openCart()">Cart</button>
   </header>
+
+  <div class="nav-drawer" id="navDrawer">
+    <div class="nav-drawer-overlay" onclick="closeNav()"></div>
+    <div class="nav-drawer-panel">
+      <button class="nav-drawer-close" onclick="closeNav()">&#x2715;</button>
+      <div class="nav-drawer-links">
+        <a href="about.html">ABOUT</a>
+        <a href="https://instagram.com/yourhandle" target="_blank">INSTAGRAM</a>
+        <a href="mailto:your@email.com" aria-label="email">EMAIL</a>
+        <a href="account.html">ACCOUNT</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-overlay" onclick="closeCart()"></div>
+    <div class="cart-drawer-panel">
+      <div class="cart-drawer-header">
+        <h2>CART</h2>
+        <button class="cart-drawer-close" onclick="closeCart()">&#x2715;</button>
+      </div>
+      <div class="cart-empty">Your cart is empty.</div>
+    </div>
+  </div>
 
   <main class="print-page" data-print="Roger" data-title="Roger">
     <img src="" alt="Roger" class="print-image" id="photo" />
@@ -45,12 +71,23 @@
       </div>
 
       <div class="purchase">
-        <span id="price">$50</span>
-        <button>Buy</button>
+        <span id="price"></span>
+        <div class="buttons">
+          <button>Buy now</button>
+          <button>Add to cart</button>
+        </div>
       </div>
     </div>
   </main>
 
   <script src="print.js"></script>
+
+  <script>
+    function openNav()  { document.getElementById('navDrawer').classList.add('open'); }
+    function closeNav() { document.getElementById('navDrawer').classList.remove('open'); }
+    function openCart()  { document.getElementById('cartDrawer').classList.add('open'); }
+    function closeCart() { document.getElementById('cartDrawer').classList.remove('open'); }
+  </script>
+
 </body>
 </html>

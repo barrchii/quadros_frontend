@@ -1,156 +1,379 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f3f3f3;
-    color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f3f3f3;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #333;
+  padding: 1em;
+  display: flex;
+  height: 40px;
+  align-items: center;
+}
+
+.header-left a:hover,
+.header-right a:hover,
+.header-right button:hover {
+  color: #fff;
+}
+
+/* Left group: quadros. + hamburger */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  flex: 1;
+}
+
+.header-left a {
+  font-size: 3.5em;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  text-decoration: none;
+  color: #e0e0e0;
+  line-height: 1;
+}
+
+/* Right group: (about + instagram + email + account + cart) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.header-right a,
+.header-right button {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1.1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+  gap: 1.5em;
+  margin-left: 1em;
+  text-transform: uppercase;
+}
+
+/* Hamburger — hidden on desktop */
+.hamburger {
+  display: none;
+  padding: 0px;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+/* ── Mobile nav drawer ────────────────────────────────────────────────────── */
+.nav-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+}
+
+.nav-drawer.open {
+  display: flex;
+}
+
+.nav-drawer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.nav-drawer-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background: #222;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+}
+
+.nav-drawer-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  flex: 1;
+}
+
+.nav-drawer-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1.2em;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.nav-drawer-links a:hover {
+  color: #fff;
+}
+
+/* ── Cart drawer ──────────────────────────────────────────────────────────── */
+.cart-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+}
+
+.cart-drawer.open {
+  display: flex;
+}
+
+.cart-drawer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.cart-drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 360px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+}
+
+.cart-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.cart-drawer-header h2 {
+  margin: 0;
+  font-size: 1.1em;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cart-drawer-close {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #555;
+  padding: 0;
+  line-height: 1;
+}
+
+.cart-empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 0.95em;
+}
+
+/* ── Gallery grid ─────────────────────────────────────────────────────────── */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* ── Print page ───────────────────────────────────────────────────────────── */
+.print-page {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4em;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 3em;
+  padding: 0 2em;
+}
+
+.print-image {
+  display: flex;
+  height: auto;
+  max-width: 650px;
+  min-width: 460px;
+}
+
+.print-image-vert {
+  display: flex;
+  height: auto;
+  max-width: 500px;
+  min-width: 310px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+  min-width: 180px;
+}
+
+/* ── Option controls ──────────────────────────────────────────────────────── */
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.option-group label {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9em;
+  color: #333;
+}
+
+select {
+  padding: 0.5em 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  background: #fff;
+  cursor: pointer;
+}
+
+.purchase {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+  align-items: center;
+}
+
+#price {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.buttons button{
+  padding: 0.75em 2em;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  width: 150px;
+  transition: background-color 0.2s ease;
+}
+
+.buttons button:hover {
+  background-color: #111;
+}
+
+/* ── Mobile ───────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Header: hamburger | quadros. | cart */
+  .header-right a {
+    display: none;
   }
-  
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #111;
-    color: #fff;
-    padding: 1em;
+
+  .hamburger {
     display: flex;
+  }
+
+  header {
     justify-content: space-between;
-    align-items: center;
-  }
-  
-  header h1 {
-    margin: 0;
   }
 
-  /* Remove underline and color change from 'quadros.' link */
-  header h1 a {
-    text-decoration: none; /* No underline */
-    color: #e0e0e0; /* Light color for the link */
+  .header-left a {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
-  header h1 a:hover {
-    color: #e0e0e0; /* Keep the same color on hover */
-  }
-  
-  nav a {
-    margin-left: 1em;
-    color: #fff;
-    text-decoration: none;
-  }
-  
 
-  /*gallery grid*/
   .gallery {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 2em;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 1em;
+    padding: 1em;
   }
-  
+
   .gallery img {
     width: 100%;
     height: auto;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.3s ease, filter 0.3s ease;
   }
-  
-  .gallery img:hover {
-    transform: scale(1.02);
-    filter: brightness(1.1);
-  }
-  
 
-  /* mobile adaptability*/
-
-  @media (max-width: 768px) {
-    .gallery {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1em;
-      padding: 1em;
-    }
-  
-    .gallery img {
-      width: 100%;
-      height: auto;
-    }
-  }
-  
-
-  
   .print-page {
-    max-width: 800px;
-    margin: 4em auto;
-    padding: 0 1.5em;
-    text-align: center;
-  }
-  
-  .print-image {
-    width: 100%;
-    max-width: 1000px;
-    height: auto;
-    margin-bottom: 2em;
-  }
-  
-  .options {
-    display: flex;
     flex-direction: column;
-    gap: 1.5em;
     align-items: center;
-  }
-  
-  .option-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-  }
-  
-  .option-group label {
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.9em;
-    color: #444;
-  }
-  
-  select {
-    padding: 0.5em 1em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-    background: #fff;
-    cursor: pointer;
-  }
-  
-  .purchase {
-    display: flex;
-    gap: 1.5em;
-    align-items: center;
-    margin-top: 1em;
-  }
-  
-  #price {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #222;
-  }
-  
-  button {
-    padding: 0.75em 2em;
-    background-color: #111;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #333;
+    gap: 2em;
+    margin: 2em auto;
+    padding: 0 1em;
   }
 
-  #paypal-button-container {
-    margin-top: 1em;
+  .print-image {
+    max-width: 200px;
+    width: 100%;
   }
-  
+
+  .print-image-vert {
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .options {
+    align-items: center;
+    width: 100%;
+  }
+
+  .purchase {
+    align-items: center;
+  }
+
+}
