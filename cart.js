@@ -53,7 +53,7 @@ function renderCart(cart) {
 
   const checkoutButtonDiv = document.createElement('div');
   checkoutButtonDiv.className = 'checkout-button';
-  checkoutButtonDiv.innerHTML = `<button>Checkout</button>`;
+  checkoutButtonDiv.innerHTML = `<button onclick="window.location.href='checkout.html'">Checkout</button>`;
   panel.appendChild(checkoutButtonDiv);
 }
 
