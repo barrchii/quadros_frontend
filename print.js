@@ -55,4 +55,17 @@
   // ── Init — run once on load to set correct image and price ────────────────
   updatePrice();
   updateImage();
+
+  // ── Cart buttons ────────────────────────────────────────────────────────
+  const buttons = document.querySelectorAll('.buttons button');
+
+  // "Buy now" button
+  buttons[0].addEventListener('click', () => {
+    addToCart(main.dataset.print.toLowerCase(), sizeSelect.value, frameSelect.value);
+  });
+
+  // "Add to cart" button
+  buttons[1].addEventListener('click', () => {
+    addToCart(main.dataset.print.toLowerCase(), sizeSelect.value, frameSelect.value);
+  });
 })();

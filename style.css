@@ -163,6 +163,7 @@ header {
   display: flex;
   flex-direction: column;
   padding: 1.5em;
+  overflow-y: auto;
 }
 
 .cart-drawer-header {
@@ -197,6 +198,53 @@ header {
   justify-content: center;
   color: #999;
   font-size: 0.95em;
+}
+
+/* ── Cart items ───────────────────────────────────────────────────────────── */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 1em 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  font-size: 0.9em;
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+}
+
+.cart-item-remove:hover {
+  color: #333;
+}
+
+.cart-total {
+  padding: 1em 0;
+  text-align: right;
+  font-size: 1.1em;
+}
+
+.checkout-button button {
+  padding: 0.75em 2em;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
 }
 
 /* ── Gallery grid ─────────────────────────────────────────────────────────── */
@@ -355,7 +403,8 @@ input {
 }
 
 .buttons button:hover,
-.login button:hover {
+.login button:hover,
+.checkout-button button:hover {
   background-color: #111;
 }
 
