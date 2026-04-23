@@ -56,16 +56,19 @@
   updatePrice();
   updateImage();
 
-  // ── Cart buttons ────────────────────────────────────────────────────────
+  // ── Cart buttons ────────────────────────────────────────────────────────---
   const buttons = document.querySelectorAll('.buttons button');
 
+  const slug = main.dataset.print;
+
   // "Buy now" button
-  buttons[0].addEventListener('click', () => {
-    addToCart(main.dataset.print.toLowerCase(), sizeSelect.value, frameSelect.value);
+  buttons[0].addEventListener('click', async () => {
+    await addToCart(slug, sizeSelect.value, frameSelect.value, false);
+    checkout();
   });
 
   // "Add to cart" button
   buttons[1].addEventListener('click', () => {
-    addToCart(main.dataset.print.toLowerCase(), sizeSelect.value, frameSelect.value);
+    addToCart(slug, sizeSelect.value, frameSelect.value);
   });
 })();

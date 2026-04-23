@@ -1,5 +1,17 @@
 const API_URL = 'http://127.0.0.1:8000/api/cart';
 
+
+async function checkout() {
+  const response = await fetch(`${API_URL}/checkout/`, {
+    method: 'POST',
+    credentials: 'include',
+  });
+  const data = await response.json();
+  if (data.url) {
+    window.location.href = data.url;
+  }
+}
+
 // Fetch and render the cart
 async function loadCart() {
   const response = await fetch(`${API_URL}/`, {
@@ -53,12 +65,12 @@ function renderCart(cart) {
 
   const checkoutButtonDiv = document.createElement('div');
   checkoutButtonDiv.className = 'checkout-button';
-  checkoutButtonDiv.innerHTML = `<button onclick="window.location.href='checkout.html'">Checkout</button>`;
+  checkoutButtonDiv.innerHTML = `<button onclick="checkout()">Checkout</button>`;
   panel.appendChild(checkoutButtonDiv);
 }
 
 // Add item to cart
-async function addToCart(slug, size, frame) {
+async function addToCart(slug, size, frame, openDrawer = true) {
   const response = await fetch(`${API_URL}/add/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -67,7 +79,7 @@ async function addToCart(slug, size, frame) {
   });
   const data = await response.json();
   renderCart(data.cart);
-  openCart();
+  if (openDrawer) openCart();
 }
 
 // Remove item from cart

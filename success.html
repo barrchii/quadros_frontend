@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed | quadros.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.ico" />
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <a href="index.html" class="header-logo">quadros.</a>
+    </div>
+  </header>
+
+  <main class="account-page">
+    <div class="login">
+      <label>Thank you for your order!</label>
+      <a href="index.html"><button>Back to gallery</button></a>
+    </div>
+  </main>
+
+  <script>
+    fetch('http://127.0.0.1:8000/api/cart/clear/',{
+        method: 'POST',
+        credentials: 'include',
+    })
+  </script>
+
+</body>
+</html>
