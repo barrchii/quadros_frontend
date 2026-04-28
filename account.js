@@ -1,29 +1,42 @@
 const API_URL = 'http://127.0.0.1:8000/api/accounts';
 
 const loginDiv = document.querySelector('.login');
-const emailInput = document.getElementById('emailAddress');
-const continueBtn = loginDiv.querySelector('button');
-
 let currentEmail = '';
 
-// Step 1: Send code
-continueBtn.addEventListener('click', async () => {
-  const email = emailInput.value.trim();
-  if (!email) return;
-
-  currentEmail = email;
-
-  const response = await fetch(`${API_URL}/send-code/`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+// Check if user is already logged in
+async function checkAuth() {
+  const response = await fetch(`${API_URL}/check/`, {
     credentials: 'include',
-    body: JSON.stringify({ email }),
   });
-
-  if (response.ok) {
-    showCodeInput();
+  const data = await response.json();
+  if (data.authenticated) {
+    showSignedIn(data.email);
   }
-});
+}
+
+// Step 1: Send code
+function attachContinueListener() {
+  const emailInput = document.getElementById('emailAddress');
+  const continueBtn = loginDiv.querySelector('button');
+
+  continueBtn.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    if (!email) return;
+
+    currentEmail = email;
+
+    const response = await fetch(`${API_URL}/send-code/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ email }),
+    });
+
+    if (response.ok) {
+      showCodeInput();
+    }
+  });
+}
 
 // Step 2: Show code input
 function showCodeInput() {
@@ -50,24 +63,60 @@ async function verifyCode() {
 
   if (response.ok) {
     const data = await response.json();
-    showLoggedIn(data.user.email);
+    showSignedIn(data.user.email);
   }
 }
 
-// Step 4: Show logged in state
-function showLoggedIn(email) {
+// Signed-in view
+function showSignedIn(email) {
   loginDiv.innerHTML = `
-    <label>Signed in as ${email}</label>
-    <button id="logoutBtn">Sign out</button>
+    <label>You're signed in using ${email}</label>
+    <button id="signOutBtn">Sign out</button>
+    <button id="deleteBtn">Delete account</button>
   `;
 
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    loginDiv.innerHTML = `
-      <label for="email">Sign in or create an account</label>
-      <input type="email" id="emailAddress" name="emailAddress" placeholder="Email" />
-      <button>Continue</button>
-    `;
-    // Re-attach the click listener to the new button
-    loginDiv.querySelector('button').addEventListener('click', arguments.callee);
+  document.getElementById('signOutBtn').addEventListener('click', async () => {
+    await fetch(`${API_URL}/logout/`, {
+      method: 'POST',
+      credentials: 'include',
+    });
+    showSignedOut();
+  });
+
+  document.getElementById('deleteBtn').addEventListener('click', showDeleteConfirm);
+}
+
+// Delete confirmation view
+function showDeleteConfirm() {
+  loginDiv.innerHTML = `
+    <label>Wanna delete your account?</label>
+    <button id="noDeleteBtn">No, take me back</button>
+    <button id="yesDeleteBtn">Yeah, delete it</button>
+  `;
+
+  document.getElementById('noDeleteBtn').addEventListener('click', () => {
+    checkAuth();
+  });
+
+  document.getElementById('yesDeleteBtn').addEventListener('click', async () => {
+    await fetch(`${API_URL}/delete/`, {
+      method: 'DELETE',
+      credentials: 'include',
+    });
+    showSignedOut();
   });
 }
+
+// Signed-out view
+function showSignedOut() {
+  loginDiv.innerHTML = `
+    <label for="email">Sign in or create an account</label>
+    <input type="email" id="emailAddress" name="emailAddress" placeholder="Email" />
+    <button>Continue</button>
+  `;
+  attachContinueListener();
+}
+
+// Init
+checkAuth();
+attachContinueListener();

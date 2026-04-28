@@ -71,7 +71,7 @@ header {
 .hamburger {
   display: none;
   padding: 0px;
-  background-color: #333;
+  background: none;
   border: none;
   cursor: pointer;
 }
@@ -240,7 +240,7 @@ header {
   background-color: #333;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   font-size: 1em;
   cursor: pointer;
   width: 100%;
@@ -320,6 +320,18 @@ header {
 }
 
 /* ── Option controls & login──────────────────────────────────────────────────────── */
+.description {
+  width: 200px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #333;
+}
+
+.description span {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
 .option-group {
   display: flex;
   flex-direction: column;
@@ -328,12 +340,13 @@ header {
 }
 
 .option-group label {
-  font-weight: bold;
+  /*font-weight: bold;*/
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.9em;
   color: #333;
 }
+
 .login label {
   font-weight: bold;
   text-transform: uppercase;
@@ -344,6 +357,7 @@ header {
 
 select {
   padding: 0.5em 1em;
+  width: 200px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 1em;
@@ -364,38 +378,40 @@ input {
 .purchase {
   display: flex;
   flex-direction: column;
-  gap: 0.75em;
+  gap: 0.5em;
   align-items: center;
 }
 
 #price {
-  font-size: 1.5em;
+  font-size: 0.9em;
+  font-weight: bold;
   color: #333;
 }
 
 .buttons {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
 }
 
-.buttons button{
+.buttons button {
   padding: 0.75em 2em;
   background-color: #333;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   font-size: 1em;
   cursor: pointer;
   width: 150px;
   transition: background-color 0.2s ease;
 }
-.login button{
+
+.login button {
   padding: 0.75em 2em;
   background-color: #333;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   font-size: 1em;
   cursor: pointer;
   width: 250px;
@@ -444,7 +460,7 @@ input {
   .print-page {
     flex-direction: column;
     align-items: center;
-    gap: 2em;
+    gap: 0.5em;
     margin: 2em auto;
     padding: 0 1em;
   }
