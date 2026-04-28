@@ -1,5 +1,11 @@
 const API_URL = 'http://127.0.0.1:8000/api/cart';
 
+function sanitize(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
 
 async function checkout() {
   const response = await fetch(`${API_URL}/checkout/`, {
@@ -49,8 +55,8 @@ function renderCart(cart) {
     div.className = 'cart-item';
     div.innerHTML = `
       <div class="cart-item-info">
-        <strong>${item.name}</strong>
-        <span>${item.size} / ${item.frame === 'none' ? 'no' : item.frame} frame</span>
+        <strong>${sanitize(item.name)}</strong>
+        <span>${sanitize(item.size)} / ${item.frame === 'none' ? 'no' : sanitize(item.frame)} frame</span>
         <span>Qty: ${item.quantity} — $${price} USD</span>
       </div>
       <button class="cart-item-remove" onclick="removeFromCart(${item.id})">✕</button>

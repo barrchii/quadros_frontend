@@ -3,6 +3,13 @@ const API_URL = 'http://127.0.0.1:8000/api/accounts';
 const loginDiv = document.querySelector('.login');
 let currentEmail = '';
 
+function sanitize(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+
 // Check if user is already logged in
 async function checkAuth() {
   const response = await fetch(`${API_URL}/check/`, {
@@ -41,7 +48,7 @@ function attachContinueListener() {
 // Step 2: Show code input
 function showCodeInput() {
   loginDiv.innerHTML = `
-    <label for="code">Enter the 6-digit code sent to ${currentEmail}</label>
+    <label for="code">Enter the 6-digit code sent to ${sanitize(currentEmail)}</label>
     <input type="text" id="codeInput" maxlength="6" placeholder="000000" />
     <button id="verifyBtn">Verify</button>
   `;
@@ -70,7 +77,7 @@ async function verifyCode() {
 // Signed-in view
 function showSignedIn(email) {
   loginDiv.innerHTML = `
-    <label>You're signed in using ${email}</label>
+    <label>You're signed in using ${sanitize(email)}</label>
     <button id="signOutBtn">Sign out</button>
     <button id="deleteBtn">Delete account</button>
   `;
