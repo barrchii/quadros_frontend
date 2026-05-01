@@ -54,6 +54,7 @@ function renderCart(cart) {
     const div = document.createElement('div');
     div.className = 'cart-item';
     div.innerHTML = `
+      <img class="cart-item-thumb" src="${sanitize(item.image)}" alt="${sanitize(item.name)}" />
       <div class="cart-item-info">
         <strong>${sanitize(item.name)}</strong>
         <span>${sanitize(item.size)} / ${item.frame === 'none' ? 'no' : sanitize(item.frame)} frame</span>

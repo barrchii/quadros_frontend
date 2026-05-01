@@ -247,6 +247,11 @@ header {
   transition: background-color 0.2s ease;
 }
 
+.cart-item-thumb {
+  width: 100px;
+  height: 100px;
+}
+
 /* ── Gallery grid ─────────────────────────────────────────────────────────── */
 .gallery {
   display: grid;
