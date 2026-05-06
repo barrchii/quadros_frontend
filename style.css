@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   margin: 0;
   background: #f3f3f3;
   color: #333;
@@ -64,7 +64,7 @@ header {
   transition: color 0.2s ease;
   gap: 1.5em;
   margin-left: 1em;
-  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 /* Hamburger — hidden on desktop */
@@ -177,7 +177,6 @@ header {
   margin: 0;
   font-size: 1.1em;
   color: #222;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
@@ -328,7 +327,6 @@ header {
 .description {
   width: 200px;
   padding-bottom: 40px;
-  border-bottom: 1px solid #333;
 }
 
 .description span {
@@ -354,10 +352,13 @@ header {
 
 .login label {
   font-weight: bold;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.9em;
   color: #333;
+}
+
+.login p {
+  align-items: center;
 }
 
 select {
@@ -368,6 +369,7 @@ select {
   font-size: 1em;
   background: #fff;
   cursor: pointer;
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 input {
@@ -378,6 +380,7 @@ input {
   background: #fff;
   width: 220px;
   cursor: text;
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 .purchase {
@@ -409,6 +412,8 @@ input {
   cursor: pointer;
   width: 150px;
   transition: background-color 0.2s ease;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: bold;
 }
 
 .login button {
@@ -421,6 +426,8 @@ input {
   cursor: pointer;
   width: 250px;
   transition: background-color 0.2s ease;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: bold;
 }
 
 .buttons button:hover,
