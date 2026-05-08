@@ -1,7 +1,7 @@
 // print.js — shared logic for all print pages
 //
 // Each print page declares its print key via:
-//   <main class="print-page" data-print="AguaBlanca" data-title="Agua Blanca">
+//   <main class="print-page" data-print="agua-blanca" data-title="Agua Blanca">
 //
 // Image files must follow the naming convention:
 //   framed/{key}-BlackFrame.png

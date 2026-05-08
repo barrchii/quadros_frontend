@@ -26,7 +26,7 @@ function attachContinueListener() {
   const emailInput = document.getElementById('emailAddress');
   const continueBtn = loginDiv.querySelector('button');
 
-  continueBtn.addEventListener('click', async () => {
+  const handleSend = async () => {
     const email = emailInput.value.trim();
     if (!email) return;
 
@@ -42,6 +42,11 @@ function attachContinueListener() {
     if (response.ok) {
       showCodeInput();
     }
+  };
+
+  continueBtn.addEventListener('click', handleSend);
+  emailInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleSend();
   });
 }
 
@@ -54,6 +59,9 @@ function showCodeInput() {
   `;
 
   document.getElementById('verifyBtn').addEventListener('click', verifyCode);
+  document.getElementById('codeInput').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') verifyCode();
+  });
 }
 
 // Step 3: Verify code
