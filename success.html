@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Order Confirmed | quadros.</title>
+  <title>Quadros Gallery</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/tys4vyn.css">
   <link rel="icon" href="images/favicon.ico" />
 </head>
 <body>
 
   <header>
-    <div class="header-left">
-      <a href="index.html" class="header-logo">Quadros.</a>
+    <div class="header-left-solo">
+      <a href="index.html" class="header-logo">Quadros</a>
     </div>
   </header>
+
+  <div class="horizontal-rule">
+    <hr>
+  </div>
 
   <main class="account-page">
     <div class="login">
@@ -24,10 +28,15 @@
   </main>
 
   <script>
-    fetch('http://127.0.0.1:8000/api/cart/clear/',{
-        method: 'POST',
-        credentials: 'include',
-    })
+    const API_BASE = window.location.hostname === '127.0.0.1'
+    ? 'http://127.0.0.1:8000'
+    : 'https://api.quadrosgallery.com';
+
+    fetch(`${API_BASE}/api/cart/clear/`, {
+      method: 'POST',
+      credentials: 'include',
+    });
+
   </script>
 
 </body>

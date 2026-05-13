@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Puerto Dream | quadros.</title>
+  <title>Quadros Gallery</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/tys4vyn.css">
   <link rel="icon" href="images/favicon.ico" />
 </head>
 
@@ -16,23 +16,27 @@
       <button class="hamburger" aria-label="Open menu" onclick="openNav()">
         <img src="icons/hamburger.svg" alt="hamburger" width="40" height="40" />
       </button>
-      <a href="index.html">Quadros.</a>
+      <a href="index.html">Quadros</a>
     </div>
     <div class="header-right">
-      <a href="about.html">about</a>
-      <a href="https://instagram.com/yourhandle" target="_blank">instagram</a>
-      <a href="mailto:your@email.com" aria-label="email">email</a>
-      <a href="account.html">account</a>
+      <a href="lore.html" onclick="closeNav()">lore</a>
+      <a href="https://instagram.com/yourhandle" onclick="closeNav()" target="_blank">instagram</a>
+      <a href="mailto:your@email.com" aria-label="email" onclick="closeNav()">email</a>
+      <a href="account.html" onclick="closeNav()">account</a>
       <button onclick="openCart()">cart</button>
     </div>
   </header>
+
+  <div class="horizontal-rule">
+    <hr>
+  </div>
 
   <div class="nav-drawer" id="navDrawer">
     <div class="nav-drawer-overlay" onclick="closeNav()"></div>
     <div class="nav-drawer-panel">
       <button class="nav-drawer-close" onclick="closeNav()">&#x2715;</button>
       <div class="nav-drawer-links">
-        <a href="about.html">about</a>
+        <a href="lore.html">lore</a>
         <a href="https://instagram.com/yourhandle" target="_blank">instagram</a>
         <a href="mailto:your@email.com" aria-label="email">email</a>
         <a href="account.html">account</a>
@@ -56,11 +60,10 @@
     <div class="options">
 
       <div class="description">
-        <span>Puerto Dream | 2021</span>
+        <h3>Puerto Dream | 2021</h3>
       </div>
 
       <div class="option-group">
-        <label for="size">Size</label>
         <select id="size">
           <option value="medium">Medium (12x18")</option>
           <option value="large">Large (20x30")</option>
@@ -68,7 +71,6 @@
       </div>
 
       <div class="option-group">
-        <label for="frame">Frame</label>
         <select id="frame">
           <option value="none">No Frame</option>
           <option value="black" selected>Black Frame</option>

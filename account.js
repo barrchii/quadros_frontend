@@ -1,4 +1,6 @@
-const API_URL = 'http://127.0.0.1:8000/api/accounts';
+const API_URL = window.location.hostname === '127.0.0.1'
+  ? 'http://127.0.0.1:8000/api/accounts'
+  : 'https://api.quadrosgallery.com/api/accounts';
 
 const loginDiv = document.querySelector('.login');
 let currentEmail = '';
