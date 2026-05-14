@@ -8,8 +8,9 @@
   <link rel="stylesheet" href="https://use.typekit.net/tys4vyn.css">
   <link rel="icon" href="images/favicon.ico" />
 </head>
-<body>
 
+<body>
+ 
   <header>
     <div class="header-left">
       <button class="hamburger" aria-label="Open menu" onclick="openNav()">
@@ -30,23 +31,15 @@
     <hr>
   </div>
 
-  <div class="index-hero">
-    <img src="index-images/monochromosome-hero.png"/>
-  </div>
-
-  <div class="gallery-version">
-    <span>Gallery 1.0:<br></span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-  </div>
-
   <div class="nav-drawer" id="navDrawer">
     <div class="nav-drawer-overlay" onclick="closeNav()"></div>
     <div class="nav-drawer-panel">
       <button class="nav-drawer-close" onclick="closeNav()">&#x2715;</button>
       <div class="nav-drawer-links">
-        <a href="lore.html" onclick="closeNav()">lore</a>
-        <a href="https://instagram.com/yourhandle" onclick="closeNav()" target="_blank">instagram</a>
-        <a href="mailto:your@email.com" aria-label="email" onclick="closeNav()">email</a>
-        <a href="account.html" onclick="closeNav()">account</a>
+        <a href="lore.html">lore</a>
+        <a href="https://instagram.com/yourhandle" target="_blank">instagram</a>
+        <a href="mailto:your@email.com" aria-label="email">email</a>
+        <a href="account.html">account</a>
       </div>
     </div>
   </div>
@@ -60,19 +53,44 @@
       <div class="cart-empty">Your cart is empty.</div>
     </div>
   </div>
+ 
+  <main class="print-page" data-print="rizos" data-title="rizos">
+    <img src="" alt="rizos" class="print-image" id="photo"/>
+ 
+    <div class="options">
 
-  <main class="gallery">
-    <a href="puertoDream.html"><img src="index-images/puertoDream.png"/></a>
-    <a href="handbreak.html"><img src="index-images/handbreak.png"/></a>
-    <a href="monochromosome.html"><img src="index-images/monochromosome.png"/></a>
-    <a href="marcial.html"><img src="index-images/marcial.png"/></a>
-    <a href="vortex.html"><img src="index-images/vortex.png"/></a>
-    <a href="peek.html"><img src="index-images/peek.png"/></a>
-    <a href="rizos.html"><img src="index-images/rizos.png"/></a>
-    <a href="breakwater.html"><img src="index-images/breakwater.png"/></a>
+      <div class="description">
+        <h3>rizos | 2020</h3>
+      </div>
+
+      <div class="option-group">
+        <select id="size">
+          <option value="medium">Medium (12x18")</option>
+          <option value="large">Large (20x30")</option>
+        </select>
+      </div>
+ 
+      <div class="option-group">
+        <select id="frame">
+          <option value="none">No Frame</option>
+          <option value="black" selected>Black Frame</option>
+          <option value="wood">Natural Wood Frame</option>
+        </select>
+      </div>
+ 
+      <div class="purchase">
+        <span id="price"></span>
+        <div class="buttons">
+          <button>Buy now</button>
+          <button>Add to cart</button>
+        </div>
+      </div>
+
+    </div>
+    
   </main>
-  
-  <script src="js/index.js"></script>
+ 
+  <script src="print.js"></script>
 
   <script src="cart.js"></script>
 
