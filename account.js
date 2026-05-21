@@ -58,11 +58,20 @@ function showCodeInput() {
     <label for="code">Enter the 6-digit code sent to ${sanitize(currentEmail)}</label>
     <input type="text" id="codeInput" maxlength="6" placeholder="000000" />
     <button id="verifyBtn">Verify</button>
+    <button id="resendBtn">Resend code</button>
   `;
 
   document.getElementById('verifyBtn').addEventListener('click', verifyCode);
   document.getElementById('codeInput').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') verifyCode();
+  });
+  document.getElementById('resendBtn').addEventListener('click', async () => {
+    await fetch(`${API_URL}/send-code/`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ email: currentEmail }),
+    });
   });
 }
 
